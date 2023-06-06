@@ -20,4 +20,4 @@ import { ExelComponent } from './component/exel/exel.component';
     ExelComponent    
   ],
 })
-export class CertificacionModule { }
+export class cargarCertificados { }

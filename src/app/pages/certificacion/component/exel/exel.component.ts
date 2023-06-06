@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
+import { CertificacionService } from '@services/certificacion.service'
 
 @Component({
   selector: 'app-exel',
@@ -12,20 +13,37 @@ export class ExelComponent {
   file: File;
   data: any[];
 
+
+  fileData: string | undefined;
+  fileType: string | undefined;
+  selectedFile: File | undefined;
+
+  constructor(private certificacionService: CertificacionService) {}
+
   selccionar_exel(event: any) {
-    this.file = event.target.files[0];
+    this.selectedFile = event.target.files[0];
   }
 
-  leer_archivo() {
-    const reader: FileReader = new FileReader();
-    reader.onload = (e: any) => {
-      const data = new Uint8Array(e.target.result);
-      const workbook = XLSX.read(data, { type: 'array' });
-      const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-      this.data = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
-    };
-    reader.readAsArrayBuffer(this.file);
+  importarCertificado() {
+    if (this.selectedFile) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.fileData = reader.result as string;
+        this.fileType = this.selectedFile.type;
+        this.certificacionService.importarCertificado(this.fileData, this.fileType, this.selectedFile.type)
+          .subscribe(
+            response => {
+              // Maneja la respuesta del servicio
+            },
+            error => {
+              // Maneja los errores
+            }
+          );
+      };
+      reader.readAsDataURL(this.selectedFile);
+    }
   }
-
 }
+
+
 
