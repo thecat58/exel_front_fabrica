@@ -1,0 +1,14 @@
+.company--container {
+  justify-content: center;
+}
+
+.company {
+  cursor: pointer;
+  max-width: 15rem;
+}
+.company--image {
+  height: 5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}/*# sourceMappingURL=company.component.css.map */

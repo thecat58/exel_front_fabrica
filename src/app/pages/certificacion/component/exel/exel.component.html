@@ -1,0 +1,7 @@
+<input type="file" (change)="selccionar_exel($event)">
+<button (click)="leer_archivo()">Importar</button>
+<table>
+  <tr *ngFor="let row of data">
+    <td *ngFor="let cell of row">{{ cell }}</td>
+  </tr>
+</table>

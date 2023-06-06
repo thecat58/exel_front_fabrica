@@ -25,9 +25,17 @@ import {  GESTION_MEDIO_PAGO,
           GESTION_RESULTADO_APRENDIZAJE,
           REGIONAL,
           CENTRO_FORMACION,//i
+          CERTIFICACION,
 } from './permissions';
           
 export const navItems: NavegacionModel[] = [
+
+  {
+    name: "Certificacion",
+    url: 'add_certificacion',//muestra la vista para resultado aprendizaje''''''''''''''''''''
+    icon: 'cil-columns',
+    permiso: CERTIFICACION
+  },
   {
     name: 'Roles',
     url: 'add_roles',
@@ -186,6 +194,8 @@ export const navItems: NavegacionModel[] = [
     icon: 'cil-columns',
     permiso: CENTRO_FORMACION
   },
+  
+
 ];
 
 export const routesNav: Routes = [
@@ -338,5 +348,9 @@ export const routesNav: Routes = [
   {
     path: 'add_centro_formacion',
     loadChildren: () => import('../pages/centro-formacion/centro-formacion.module').then(m => m.CentroFormacionModule)
+  },
+  {
+    path: 'add_certificacion',
+    loadChildren: () => import('../pages/certificacion/certificacion.module').then(m => m.CertificacionModule)
   },
 ];
