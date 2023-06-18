@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpXsrfTokenExtractor } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpXsrfTokenExtractor } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthModel } from '@models/auth.model';
@@ -14,6 +14,9 @@ const API_URL = environment.url;
   providedIn: 'root'
 })
 export class CoreService {
+  handleBackendError(error: HttpErrorResponse) {
+    throw new Error('Method not implemented.');
+  }
 
   public persona: BehaviorSubject<PersonaModel> = new BehaviorSubject<PersonaModel>(null);
   public empresa: BehaviorSubject<EmpresaModel> = new BehaviorSubject<EmpresaModel>(null);

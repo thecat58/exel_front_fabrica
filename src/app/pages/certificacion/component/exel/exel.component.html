@@ -4,31 +4,29 @@
     </div>
     <div class="card-body">
   
-      <form (submit)="importarDocumetosMora($event)">
+      <form (submit)="importarDocumentosMora($event)">
         <div class="custom-input-file">
-        <input id="custom-input-file" type="file" name="documento">
-      </div>
+        <input id="custom-input-file" type="file" name="documento" required>
+      </div>     
       <div class="card-footer">
         <button  [disabled]="cargandoArchivo"
         class="btn btn-sm btn-warning"
         type="submit">
         <i class="fa fa-arrow-up  "></i> Importar
-        </button>
-        <!-- <button type="reset" class="btn btn-sm btn-success" (click)="ejecutarProcedimiento()">
-          <i class="fa fa-cogs "></i>
-          Ejecutar Procedimiento
-        </button> -->
-  
-        <!-- <button  type="reset" class="btn btn-sm btn-primary"   download (click)="downloadReporte()">
-          <i class="fa fa-file-excel-o "></i>
-          Generar Reporte
-        </button>  -->
+        
+      </button>
+       <br>
+       <br>
+      <button class="btn btn-sm btn-danger" (click)="refreshPage()" >Cancelar</button>
+
+        <progress class="progress-bar" [value]="progreso" max="50"></progress> 
       </div>
       </form>
      <div>
-  
+      
       </div>
     </div>
   </div>
-  <!-- <progress [value]="progreso" max="1000"></progress> -->
+  
+  
   

@@ -1,0 +1,20 @@
+
+h1,h2,h6{ // titulod 
+    font-size: 9px;
+}
+.row{ //tamaño de todo el contenedor 
+    width: 100%;
+    gap: 5px; //este se´para cada ul
+}
+.row li{ // las etquetas interiores, cada dato 
+    display: flex; //direccion del conoder de cada etiqueta 
+    flex-direction: row; //orientacion de los bloques en dila oriqzontal
+    justify-content: space-between; //para que los dos bloque se dividadn el espacio e internamente 
+    font-size: 9px; // tamaño de latera 
+    list-style: none;//no aparescan los puntos 
+}
+
+  
+
+    
+
